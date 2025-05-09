@@ -22,7 +22,7 @@ const Form = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/",
+        "https://portfolio-rt0r.onrender.com",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
