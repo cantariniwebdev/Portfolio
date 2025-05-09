@@ -52,7 +52,7 @@ const Works = () => {
                 <h3>Portfolio</h3>
                 <div className="form-icon">
                   <a
-                    href="https://github.com/cantariniwebdev/GRLab-final-"
+                    href="https://github.com/cantariniwebdev/Portfolio"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
