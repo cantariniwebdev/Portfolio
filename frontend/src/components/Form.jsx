@@ -85,8 +85,8 @@ const Form = () => {
         />
         <input
           type="text"
-          name="País"
-          placeholder="Country"
+          name="country"
+          placeholder="País"
           value={formData.country}
           onChange={handleChange}
           required

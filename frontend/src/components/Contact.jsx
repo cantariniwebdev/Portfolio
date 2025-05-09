@@ -25,7 +25,7 @@ const Contact = () => {
               rel="noopener noreferrer"
             >
               <img src={image11} alt="" />
-              <p>cantarini.webdeveloper@gmail.com</p>
+              <p>cantarini.webdevelopment@gmail.com</p>
             </a>
           </div>
           <div className="form-icon">
