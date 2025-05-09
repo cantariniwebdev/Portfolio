@@ -68,7 +68,7 @@ const Works = () => {
 
               <a
                 className="button crd"
-                href="https://grlab.netlify.app/"
+                href="https://cantarini.netlify.app/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
