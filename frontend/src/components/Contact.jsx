@@ -20,7 +20,7 @@ const Contact = () => {
           </p>
           <div className="form-icon">
             <a
-              href="mailto:cantarini.webdeveloper@gmail.com"
+              href="mailto:cantarini.webdevelopment@gmail.com"
               target="_self"
               rel="noopener noreferrer"
             >
