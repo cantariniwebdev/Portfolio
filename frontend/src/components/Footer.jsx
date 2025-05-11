@@ -3,7 +3,7 @@ const Footer = () => {
     <div className="footer">
       <div className="line"></div>
       <div className="rights">
-        <p>CANTARINI.WEBDEVELOPER © 2025. TODOS LOS DERECHOS RESERVADOS.</p>
+        <p>CANTARINI.WEBDEVELOPMENT © 2025. TODOS LOS DERECHOS RESERVADOS.</p>
       </div>
     </div>
   );
