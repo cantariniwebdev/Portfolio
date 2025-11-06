@@ -42,7 +42,7 @@ app.post("/", validateContactForm, async (req, res) => {
     await resend.emails.send({
       from: "Formulario Portfolio <onboarding@resend.dev>",
       to: process.env.EMAIL_USER,
-      reply_to: email,
+      replyTo: email,
       subject: `Mensaje de ${name}`,
       headers: {
         "Message-ID": uniqueMessageId, 
