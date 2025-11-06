@@ -35,7 +35,7 @@ app.post("/", validateContactForm, async (req, res) => {
 
   try {
     await resend.emails.send({
-      from: process.env.EMAIL_USER, // debe ser un dominio verificado en Resend
+      from: "Formulario Portfolio <onboarding@resend.dev>",
       to: process.env.EMAIL_USER,
       subject: `Mensaje de ${name}`,
       text: `Nombre: ${name}\nCorreo: ${email}\nTeléfono: ${tel}\nPaís: ${country}\nMensaje: ${message}`,
