@@ -17,7 +17,6 @@ app.use(
 
 app.use(express.json());
 
-
 const validateContactForm = [
   body("name").notEmpty().trim().escape().isLength({ max: 100 }),
   body("email").notEmpty().isEmail().normalizeEmail(),
@@ -42,11 +41,17 @@ app.post("/", validateContactForm, async (req, res) => {
     await resend.emails.send({
       from: "Formulario Portfolio <onboarding@resend.dev>",
       to: process.env.EMAIL_USER,
+
+      // ✅ PARA QUE "RESPONDER" VAYA AL MAIL DEL USUARIO
       replyTo: email,
+
       subject: `Mensaje de ${name}`,
+
       headers: {
-        "Message-ID": uniqueMessageId, 
+        "Message-ID": uniqueMessageId,
+        "Reply-To": email,        // ✅ IMPORTANTE: RESPALDO REAL DEL HEADER SMTP
       },
+
       text: `Nombre: ${name}
 Correo: ${email}
 Teléfono: ${tel}
@@ -61,7 +66,6 @@ ${message}`,
     res.status(500).send("Error interno del servidor");
   }
 });
-
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
