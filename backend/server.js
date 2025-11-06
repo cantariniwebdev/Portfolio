@@ -17,11 +17,12 @@ app.use(
 
 app.use(express.json());
 
+
 const validateContactForm = [
   body("name").notEmpty().trim().escape().isLength({ max: 100 }),
   body("email").notEmpty().isEmail().normalizeEmail(),
   body("tel").notEmpty().isMobilePhone().trim().escape(),
-  body("country").notEmpty().isAlpha().isLength({ max: 50 }).trim().escape(),
+  body("country").notEmpty().isLength({ max: 50 }).trim().escape(),
   body("message").notEmpty().trim().escape().isLength({ max: 5000 }),
 ];
 
@@ -33,13 +34,25 @@ app.post("/", validateContactForm, async (req, res) => {
 
   const { name, email, tel, country, message } = req.body;
 
+  const uniqueMessageId = `<${Date.now()}-${Math.random()
+    .toString(36)
+    .slice(2)}@portfolio.app>`;
+
   try {
     await resend.emails.send({
       from: "Formulario Portfolio <onboarding@resend.dev>",
       to: process.env.EMAIL_USER,
+      reply_to: email,
       subject: `Mensaje de ${name}`,
-      text: `Nombre: ${name}\nCorreo: ${email}\nTeléfono: ${tel}\nPaís: ${country}\nMensaje: ${message}`,
-      reply_to: email, // opcional: permite responder al remitente
+      headers: {
+        "Message-ID": uniqueMessageId, 
+      },
+      text: `Nombre: ${name}
+Correo: ${email}
+Teléfono: ${tel}
+País: ${country}
+Mensaje:
+${message}`,
     });
 
     res.status(200).send("Correo enviado!");
@@ -49,10 +62,13 @@ app.post("/", validateContactForm, async (req, res) => {
   }
 });
 
+
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send("Algo salió mal!");
 });
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Servidor corriendo en el puerto ${PORT}`));
+app.listen(PORT, () =>
+  console.log(`Servidor corriendo en el puerto ${PORT}`)
+);
