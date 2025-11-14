@@ -35,7 +35,7 @@ const Works = () => {
 
               <a
                 className="button"
-                href="https://grlab.netlify.app/"
+                href="https://grlaboratorio.com"
                 target="_blank"
                 rel="noopener noreferrer"
               >
