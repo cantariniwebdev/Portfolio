@@ -78,7 +78,7 @@ const Form = () => {
         placeholder="Teléfono*"
         required
         name="tel"
-        value={formData.phone}
+        value={formData.tel}
         onChange={handleChange}
         pattern="[0-9]{6,}"
         title="El teléfono debe tener al menos 6 números"
