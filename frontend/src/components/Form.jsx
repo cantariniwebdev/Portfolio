@@ -74,14 +74,14 @@ const Form = () => {
       </div>
       <div className="row">
         <input
-          type="tel"
-          name="tel"
-          placeholder="Teléfono"
-          value={formData.tel}
-          onChange={handleChange}
-          required
-          pattern="[0-9]+"
-          autoComplete="on"
+        type="tel"
+        placeholder="Teléfono*"
+        required
+        name="phone"
+        value={formData.phone}
+        onChange={handleChange}
+        pattern="[0-9]{6,}"
+        title="El teléfono debe tener al menos 6 números"
         />
         <input
           type="text"

@@ -19,8 +19,8 @@ app.use(express.json());
 
 const validateContactForm = [
   body("name").notEmpty().trim().escape().isLength({ max: 100 }),
-  body("email").notEmpty().isEmail().normalizeEmail(),
-  body("tel").notEmpty().isMobilePhone().trim().escape(),
+  body("email").notEmpty().isEmail(),
+  body("phone").notEmpty().isLength({ min: 6, max: 20 }).trim().escape(),
   body("country").notEmpty().isAlpha().isLength({ max: 50 }).trim().escape(),
   body("message").notEmpty().trim().escape().isLength({ max: 5000 }),
 ];
@@ -39,7 +39,7 @@ app.post("/", validateContactForm, async (req, res) => {
       to: process.env.EMAIL_USER,
       subject: `Mensaje de ${name}`,
       text: `Nombre: ${name}\nCorreo: ${email}\nTeléfono: ${tel}\nPaís: ${country}\nMensaje: ${message}`,
-      replyTo: email, 
+      replyTo: email,
     });
 
     res.status(200).send("Correo enviado!");
