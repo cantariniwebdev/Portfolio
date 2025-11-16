@@ -20,7 +20,7 @@ app.use(express.json());
 const validateContactForm = [
   body("name").notEmpty().trim().escape().isLength({ max: 100 }),
   body("email").notEmpty().isEmail(),
-  body("phone").notEmpty().isLength({ min: 6, max: 20 }).trim().escape(),
+  body("tel").notEmpty().isLength({ min: 6, max: 20 }).trim().escape(),
   body("country").notEmpty().isAlpha().isLength({ max: 50 }).trim().escape(),
   body("message").notEmpty().trim().escape().isLength({ max: 5000 }),
 ];

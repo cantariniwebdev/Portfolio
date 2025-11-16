@@ -77,7 +77,7 @@ const Form = () => {
         type="tel"
         placeholder="Teléfono*"
         required
-        name="phone"
+        name="tel"
         value={formData.phone}
         onChange={handleChange}
         pattern="[0-9]{6,}"
