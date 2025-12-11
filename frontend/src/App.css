@@ -400,7 +400,7 @@ textarea:focus {
 }
 
 .rights {
-  width: 460px;
+  width: 300px;
   text-align: center;
   margin: 0 auto;
   background: linear-gradient(to right, #eb31a0, #fc6767);
@@ -597,18 +597,6 @@ textarea {
 
 /* Contact */
 /* Footer */
-.footer {
-  padding: 0px;
-}
-
-.rights {
-  width: 350px;
-}
-
-.rights p {
-  font-size: 0.6rem;
-  font-weight: 500;
-}
 
 /* Footer */
 }
